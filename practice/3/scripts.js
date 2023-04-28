@@ -32,39 +32,29 @@ document.addEventListener("DOMContentLoaded", () => {
         }));
 
         state.configuredData = [...new Set(tempArr)];
-
-        state.tableBody.innerHTML = '';
-        appendRows(state.tableBody, state.configuredData);
     }
 
     const init = async () => {
-        /*        let initialState = {
-                    data: null,
-                    configuredData: null,
-                    tableBody: null
-                }
-
-                let validator = {
-                    set: function (target, key, value) {
-                        //console.log(`The property ${key} has been updated with ${value}`);
-                        Reflect.set(target, key, value);
-
-                        if (key === 'configuredData') {
-                            target.tableBody.innerHTML = '';
-                            appendRows(target.tableBody, target.configuredData);
-                        }
-
-                        return true;
-                    }
-                };
-                let state = new Proxy(initialState, validator);*/
-
-        let state = {
+        let initialState = {
             data: null,
             configuredData: null,
-            tableBody: null,
-            prevInputValLength: 0
+            tableBody: null
         }
+
+        let validator = {
+            set: function (target, key, value) {
+                Reflect.set(target, key, value);
+
+                if (key === 'configuredData') {
+                    console.log('test');
+                    target.tableBody.innerHTML = '';
+                    appendRows(target.tableBody, target.configuredData);
+                }
+
+                return true;
+            }
+        };
+        let state = new Proxy(initialState, validator);
 
         let response = await fetch('https://jsonplaceholder.typicode.com/posts');
         response = await response.json();
@@ -76,11 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#search").addEventListener('input', (e) => {
             if (e.target.value.length > 2) onInputChange(e, state);
 
-            if ((e.target.value.length - state.prevInputValLength) < 0) {
+            if ((e.target.value.length - state.prevInputValLength) < 0 && e.target.value.length < 3) {
                 state.configuredData = state.data;
-                //переписать перерисовку так, чтобы она автоматически срабатывала при изменении стейта
-                state.tableBody.innerHTML = '';
-                appendRows(state.tableBody, state.configuredData);
             }
 
             state.prevInputValLength = e.target.value.length;
@@ -88,14 +75,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.querySelectorAll('.col-head').forEach((th, i) => th.addEventListener('click', (() => {
             state.configuredData = [...state.configuredData.sort(comparer(i, this.asc = !this.asc))];
-            state.tableBody.innerHTML = '';
-            appendRows(state.tableBody, state.configuredData);
         })));
-
-
-        appendRows(state.tableBody, state.data);
     };
-
 
     init();
 });
