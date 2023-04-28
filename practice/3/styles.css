@@ -1,3 +1,15 @@
+#table {
+    border: solid 1px gray;
+    border-radius: 4px;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+#table td {
+    border: solid 1px gray;
+}
+
 .col-head {
     cursor: pointer;
+    font-weight: bold;
 }

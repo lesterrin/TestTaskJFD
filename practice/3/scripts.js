@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const appendRows = (table, data) => data.forEach(el => appendRow(table, el));
 
+
     const getCellValue = (tr, idx) => Object.values(tr)[idx];
 
     const comparer = (idx, asc) => (a, b) => ((v1, v2) => {
@@ -18,18 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
 
-    const onInputChange = (e) => filterData(e.target.value, state);
-
-    document.querySelector("#search").addEventListener('input', (e) => {
-        console.log(e.defaultValue);
-        if (/*e.target.value.length > 2*/ true) onInputChange(e);
-    });
-
-//попытка сделать аналог редакса
-    let state = {
-        data: null,
-        configuredData: null
-    }
+    const onInputChange = (e, state) => filterData(e.target.value, state);
 
     const isStrContainsSubstr = (str, subStr) => str.toString().includes(subStr);
 
@@ -44,24 +34,59 @@ document.addEventListener("DOMContentLoaded", () => {
 
         state.configuredData = [...new Set(tempArr)];
 
-        const tableBody = document.querySelector('#table tbody');
-        tableBody.innerHTML = '';
-        appendRows(tableBody, state.configuredData);
+        state.tableBody.innerHTML = '';
+        appendRows(state.tableBody, state.configuredData);
     }
 
     const init = async () => {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-        const data = await response.json();
-        state = {...state, data: data, configuredData: data};
-        const tableBody = document.querySelector('#table tbody');
-        appendRows(tableBody, data);
+/*        let initialState = {
+            data: null,
+            configuredData: null,
+            tableBody: null
+        }
+
+        let validator = {
+            set: function (target, key, value) {
+                //console.log(`The property ${key} has been updated with ${value}`);
+                Reflect.set(target, key, value);
+
+                if (key === 'configuredData') {
+                    target.tableBody.innerHTML = '';
+                    appendRows(target.tableBody, target.configuredData);
+                }
+
+                return true;
+            }
+        };
+        let state = new Proxy(initialState, validator);*/
+
+        let state = {
+            data: null,
+            configuredData: null,
+            tableBody: null
+        }
+
+        let response = await fetch('https://jsonplaceholder.typicode.com/posts');
+        response = await response.json();
+
+        state.tableBody = document.querySelector('#table tbody');
+        state.data = response;
+        state.configuredData = response;
+
+        document.querySelector("#search").addEventListener('input', (e) => {
+            if (e.target.value.length > 2) onInputChange(e, state);
+        });
 
         document.querySelectorAll('.col-head').forEach((th, i) => th.addEventListener('click', (() => {
             state.configuredData = [...state.configuredData.sort(comparer(i, this.asc = !this.asc))];
-            tableBody.innerHTML = '';
-            appendRows(tableBody, state.configuredData);
+            state.tableBody.innerHTML = '';
+            appendRows(state.tableBody, state.configuredData);
         })));
+
+
+        appendRows(state.tableBody, state.data);
     };
+
 
     init();
 });
