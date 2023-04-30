@@ -1,0 +1,120 @@
+body {
+    background-color: gray;
+}
+
+#block-div {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.42;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#modal {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    transform: translateX(-50%);
+    top: 131px;
+    left: 50%;
+    width: 560px;
+    border-radius: 12px;
+    background-color: #fff;
+    padding: 53px 97px;
+}
+
+.title {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 34px;
+    color: #0C1014;
+    margin: 0;
+}
+
+#withImage {
+    margin-top: 3px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.image-upload {
+    margin-top: 32px;
+    height: 170px;
+    width: 170px;
+    position: relative;
+}
+
+.image-upload input {
+    display: none;
+}
+
+.image-upload label {
+    cursor: pointer;
+    position: absolute;
+    top: 26px;
+    right: 0px;
+    color: #fff;
+}
+
+#cancel-logo {
+    position: absolute;
+    right: 0;
+    top: 26px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.short-inputs {
+    width: 362px;
+}
+
+.custom-input {
+    position: relative;
+    margin-top: 32px;
+    width: 100%;
+}
+
+.custom-input input {
+    height: 22px;
+    width: -webkit-fill-available;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    border: 1px solid #D6DADE;
+    border-radius: 2px;
+}
+
+.with-annotation-input input {
+    padding: 22px 16px 8px 16px;
+}
+
+.custom-input label {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #6A6E72;
+}
+
+.custom-input img {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+}
+
+.star {
+    color: #D90000;
+}
