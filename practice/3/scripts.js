@@ -14,9 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const getCellValue = (tr, idx) => Object.values(tr)[idx];
 
-    const comparer = (idx, asc) => (a, b) => ((v1, v2) =>
-            v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
-    )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+    const comparer = (idx, asc) => (a, b) => {
+        const v1 = getCellValue(asc ? a : b, idx),
+              v2 = getCellValue(asc ? b : a, idx);
+        if (v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2)) return v1 - v2;
+        else return v1.toString().localeCompare(v2);
+    };
 
     const onInputChange = (e, state) => filterData(e.target.value, state);
 
@@ -46,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 Reflect.set(target, key, value);
 
                 if (key === 'configuredData') {
-                    console.log('test');
                     target.tableBody.innerHTML = '';
                     appendRows(target.tableBody, target.configuredData);
                 }
