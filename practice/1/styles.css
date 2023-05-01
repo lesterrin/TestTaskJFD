@@ -44,11 +44,31 @@ body {
     justify-content: space-between;
 }
 
-.image-upload {
+.image-block {
     margin-top: 32px;
+    text-align: center;
+}
+
+.logo-title {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #6A6E72;
+}
+
+.image-upload {
+    margin-top: 13px;
     height: 170px;
     width: 170px;
     position: relative;
+}
+
+#upload-logo {
+    position: absolute;
+    top: 40px;
+    left: 66px;
 }
 
 .image-upload input {
@@ -58,19 +78,28 @@ body {
 .image-upload label {
     cursor: pointer;
     position: absolute;
-    top: 26px;
-    right: 0px;
+    top: 76px;
+    left: 40px;
     color: #fff;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 28px;
+    text-align: center;
+    text-decoration-line: underline;
 }
 
 #cancel-logo {
     position: absolute;
-    right: 0;
-    top: 26px;
+    right: 2px;
+    top: 15px;
     background-color: #fff;
     border-radius: 50%;
     border: none;
     cursor: pointer;
+    width: 36px;
+    height: 36px;
 }
 
 .short-inputs {
@@ -117,4 +146,43 @@ body {
 
 .star {
     color: #D90000;
+}
+
+.custom-selector .context-menu {
+    display: none;
+
+}
+
+#submit-btn {
+    background: #E5266E;
+    border-radius: 4px;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    color: #FFFFFF;
+    width: 100%;
+    padding: 15px 0;
+    border: none;
+    cursor: pointer;
+}
+
+#cancel-form-btn {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #0848C0;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.buttons-block {
+    text-align: center;
+    margin-top: 50px;
 }

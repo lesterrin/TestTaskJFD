@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Task 1</title>
+    <link href="https://fonts.cdnfonts.com/css/pt-sans-2" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/lato" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -24,13 +27,23 @@
                 <label><span class="star">✱</span>E-mail</label>
             </div>
         </div>
-        <div class="image-upload">
-            <div><span class="star">✱</span>Логотип (jpeg, png)</div>
-            <img src="./assets/Ellipse%2044.png"/>
-            <button id="cancel-logo"><img src="./assets/Icon.png"/></button>
-            <label for="file-input">Выберите файл</label>
-            <input id="file-input" type="file"/>
+        <div class="image-block">
+            <div class="logo-title"><span class="star">✱</span>Логотип (jpeg, png)</div>
+            <div class="image-upload">
+                <img id="avatar" src="./assets/Ellipse%2044.png"/>
+                <img id="upload-logo" src="./assets/Vector.png"/>
+                <button id="cancel-logo"><img src="./assets/Icon.png"/></button>
+                <label for="file-input">Выберите<br/>файл</label>
+                <input id="file-input" type="file"/>
+            </div>
         </div>
+    </div>
+    <div class="custom-selector">
+        <input class="trigger" name="direction" type="button"/>
+        <ol class="context-menu">
+            <li value="Экология">Экология</li>
+            <li value="Волонтерство">Волонтерство</li>
+        </ol>
     </div>
     <div class="custom-input">
         <input type="text"/>
@@ -59,6 +72,10 @@
     <div class="custom-input with-annotation-input">
         <input type="text"/>
         <label>Руководитель</label>
+    </div>
+    <div class="buttons-block">
+        <input type="button" id="submit-btn" value="Стать партнёром проекта">
+        <input type="button" id="cancel-form-btn" value="Отменить">
     </div>
 </div>
 <div id="block-div"></div>
