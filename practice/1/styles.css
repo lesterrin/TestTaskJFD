@@ -173,6 +173,7 @@ body {
 }
 
 .custom-selector .arrow {
+    line-height: 10px;
     position: absolute;
     right: 15px;
     top: 56px;
