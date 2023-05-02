@@ -1,12 +1,15 @@
 body {
-    background-color: gray;
+    font-family: 'PT Sans';
+    position: relative;
+    margin: 0;
 }
 
-#block-div {
+.darkBg {
     display: none;
     position: absolute;
     width: 100%;
     height: 100%;
+    min-height: 100vh;
     background-color: #000;
     opacity: 0.42;
     z-index: 0;
@@ -16,11 +19,11 @@ body {
 }
 
 #modal {
-    display: block;
+    display: none;
     position: absolute;
     z-index: 1;
     transform: translateX(-50%);
-    top: 131px;
+    top: 101px;
     left: 50%;
     width: 560px;
     border-radius: 12px;
@@ -44,13 +47,13 @@ body {
     justify-content: space-between;
 }
 
+/*блок загрузки логотипа*/
 .image-block {
     margin-top: 32px;
     text-align: center;
 }
 
 .logo-title {
-    font-family: 'PT Sans';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -59,9 +62,9 @@ body {
 }
 
 .image-upload {
+    text-align: center;
     margin-top: 13px;
-    height: 170px;
-    width: 170px;
+    width: 165px;
     position: relative;
 }
 
@@ -81,7 +84,6 @@ body {
     top: 76px;
     left: 40px;
     color: #fff;
-    font-family: 'PT Sans';
     font-style: normal;
     font-weight: 400;
     font-size: 19px;
@@ -101,6 +103,8 @@ body {
     width: 36px;
     height: 36px;
 }
+
+/*--блок загрузки логотипа--*/
 
 .short-inputs {
     width: 362px;
@@ -127,7 +131,13 @@ body {
     padding: 22px 16px 8px 16px;
 }
 
-.custom-input label {
+.custom-input img {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+}
+
+.annotation {
     position: absolute;
     top: 8px;
     left: 16px;
@@ -138,19 +148,66 @@ body {
     color: #6A6E72;
 }
 
-.custom-input img {
-    position: absolute;
-    top: 22px;
-    right: 22px;
-}
-
 .star {
     color: #D90000;
 }
 
+/*самописный селектор*/
+.custom-selector {
+    position: relative;
+}
+
+.custom-selector .trigger {
+    text-align: left;
+    cursor: pointer;
+    padding: 22px 8px 16px 16px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    background-color: #fff;
+    border: 1px solid #D6DADE;
+    border-radius: 2px;
+    height: 56px;
+    width: 100%;
+    margin-top: 32px;
+}
+
+.custom-selector .arrow {
+    position: absolute;
+    right: 15px;
+    top: 56px;
+}
+
+.custom-selector .annotation {
+    top: 40px;
+}
+
 .custom-selector .context-menu {
     display: none;
+    position: absolute;
+    width: -webkit-fill-available;
+    z-index: 2;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
 
+.custom-selector .context-menu li {
+    cursor: pointer;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    background-color: #fff;
+    border: 1px solid #D6DADE;
+    border-radius: 2px;
+    height: 22px;
+}
+
+/*--самописный селектор--*/
+.buttons-block {
+    text-align: center;
+    margin-top: 50px;
 }
 
 #submit-btn {
@@ -170,7 +227,6 @@ body {
 }
 
 #cancel-form-btn {
-    font-family: 'PT Sans';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -182,7 +238,20 @@ body {
     margin-top: 15px;
 }
 
-.buttons-block {
-    text-align: center;
-    margin-top: 50px;
+@media (max-width: 1023px) {
+    #modal {
+        width: 80%;
+    }
+
+    .short-inputs {
+        width: 100%;
+    }
+
+    #withImage {
+        flex-direction: column;
+    }
+
+    .image-upload {
+        margin: 0 auto 13px;
+    }
 }

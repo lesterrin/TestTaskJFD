@@ -8,77 +8,81 @@
     <link href="https://fonts.cdnfonts.com/css/lato" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
 </head>
+<script src="./scripts.js"></script>
 <body>
 <button id="openModal">Открыть модальное окно</button>
+<div class="darkBg"></div>
 <div id="modal">
-    <p class="title">Стать партнёром проекта</p>
-    <div id="withImage">
-        <div class="short-inputs">
-            <div class="custom-input with-annotation-input">
-                <input type="text"/>
-                <label><span class="star">✱</span>Название организации</label>
+    <form id="form">
+        <p class="title">Стать партнёром проекта</p>
+        <div id="withImage">
+            <div class="short-inputs">
+                <div class="custom-input with-annotation-input">
+                    <input name="orgName" type="text"/>
+                    <span class="annotation"><span class="star">✱</span>Название организации</span>
+                </div>
+                <div class="custom-input with-annotation-input">
+                    <input name="phone" type="text"/>
+                    <span class="annotation"><span class="star">✱</span>Телефон</span>
+                </div>
+                <div class="custom-input with-annotation-input">
+                    <input name="email" type="text"/>
+                    <span class="annotation"><span class="star">✱</span>E-mail</span>
+                </div>
             </div>
-            <div class="custom-input with-annotation-input">
-                <input type="text"/>
-                <label><span class="star">✱</span>Телефон</label>
-            </div>
-            <div class="custom-input with-annotation-input">
-                <input type="text"/>
-                <label><span class="star">✱</span>E-mail</label>
+            <div class="image-block">
+                <div class="logo-title"><span class="star">✱</span>Логотип (jpeg, png)</div>
+                <div class="image-upload">
+                    <img id="avatar" src="./assets/Ellipse%2044.png"/>
+                    <img id="upload-logo" src="./assets/Vector.png"/>
+                    <button type="button" id="cancel-logo"><img src="./assets/Icon.png"/></button>
+                    <label for="file-input">Выберите<br/>файл</label>
+                    <input name="logo" id="file-input" type="file"/>
+                </div>
             </div>
         </div>
-        <div class="image-block">
-            <div class="logo-title"><span class="star">✱</span>Логотип (jpeg, png)</div>
-            <div class="image-upload">
-                <img id="avatar" src="./assets/Ellipse%2044.png"/>
-                <img id="upload-logo" src="./assets/Vector.png"/>
-                <button id="cancel-logo"><img src="./assets/Icon.png"/></button>
-                <label for="file-input">Выберите<br/>файл</label>
-                <input id="file-input" type="file"/>
-            </div>
+        <div class="custom-selector">
+            <input class="trigger" name="direction" type="button" value="Экология"/>
+            <span class="annotation"><span class="star">✱</span>Направление</span>
+            <span class="arrow"><img src="./assets/icon-color.png"/></span>
+            <ul class="context-menu">
+                <li>Экология</li>
+                <li>Не экология</li>
+            </ul>
         </div>
-    </div>
-    <div class="custom-selector">
-        <input class="trigger" name="direction" type="button"/>
-        <ol class="context-menu">
-            <li value="Экология">Экология</li>
-            <li value="Волонтерство">Волонтерство</li>
-        </ol>
-    </div>
-    <div class="custom-input">
-        <input type="text"/>
-        <img src="./assets/web.png">
-    </div>
-    <div class="custom-input">
-        <input type="text"/>
-        <img src="./assets/vk%201.png">
-    </div>
-    <div class="custom-input">
-        <input type="text"/>
-        <img src="./assets/ok.png">
-    </div>
-    <div class="custom-input">
-        <input type="text"/>
-        <img src="./assets/facebook.png">
-    </div>
-    <div class="custom-input">
-        <input type="text"/>
-        <img src="./assets/inst.png">
-    </div>
-    <div class="custom-input">
-        <input type="text"/>
-        <img src="./assets/vk%201.png">
-    </div>
-    <div class="custom-input with-annotation-input">
-        <input type="text"/>
-        <label>Руководитель</label>
-    </div>
-    <div class="buttons-block">
-        <input type="button" id="submit-btn" value="Стать партнёром проекта">
-        <input type="button" id="cancel-form-btn" value="Отменить">
-    </div>
+        <div class="custom-input">
+            <input name="web" type="text"/>
+            <img src="./assets/web.png">
+        </div>
+        <div class="custom-input">
+            <input name="vk" type="text"/>
+            <img src="./assets/vk%201.png">
+        </div>
+        <div class="custom-input">
+            <input name="ok" type="text"/>
+            <img src="./assets/ok.png">
+        </div>
+        <div class="custom-input">
+            <input name="fb" type="text"/>
+            <img src="./assets/facebook.png">
+        </div>
+        <div class="custom-input">
+            <input name="inst" type="text"/>
+            <img src="./assets/inst.png">
+        </div>
+        <div class="custom-input">
+            <input name="youtube" type="text"/>
+            <img src="./assets/youtube.png">
+        </div>
+        <div class="custom-input with-annotation-input">
+            <input name="manager" type="text"/>
+            <span class="annotation">Руководитель</span>
+        </div>
+        <div class="buttons-block">
+            <input type="submit" id="submit-btn" value="Стать партнёром проекта">
+            <input type="button" id="cancel-form-btn" value="Отменить">
+        </div>
+    </form>
 </div>
-<div id="block-div"></div>
 </body>
-<script src="./scripts.js"></script>
 </html>
