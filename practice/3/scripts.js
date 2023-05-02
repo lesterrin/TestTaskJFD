@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return true;
             }
         };
+        //В стейте проходит вся работа с данными. Как только state.configuredData меняется, запускается ререндер
         let state = new Proxy(initialState, validator);
 
         let response = await fetch('https://jsonplaceholder.typicode.com/posts');

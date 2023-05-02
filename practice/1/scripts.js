@@ -1,6 +1,6 @@
 addEventListener("DOMContentLoaded", () => {
-    const selector = document.querySelector('.custom-selector');
-    const menu = selector.querySelector('.context-menu');
+    const selector = document.querySelector('.customSelector');
+    const menu = selector.querySelector('.contextMenu');
     const arrow = selector.querySelector('.arrow');
     const trigger = selector.querySelector('.trigger');
     const modal = document.getElementById('modal');
@@ -48,11 +48,11 @@ addEventListener("DOMContentLoaded", () => {
         else alert('Форма не валидна. Отправка невозможна');
     });
 
-    document.getElementById('cancel-logo').addEventListener('click', () => {
+    document.getElementById('cancelLogo').addEventListener('click', () => {
         document.querySelector('input[name=logo]').value = '';
     });
 
-    document.getElementById('cancel-form-btn').addEventListener('click', closeModal);
+    document.getElementById('cancelFormBtn').addEventListener('click', closeModal);
 
     document.getElementById('openModal').addEventListener('click', () => {
         modal.style.display = 'block';

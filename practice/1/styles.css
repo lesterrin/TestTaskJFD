@@ -1,59 +1,59 @@
 body {
-    font-family: 'PT Sans';
     position: relative;
     margin: 0;
+    font-family: 'PT Sans';
 }
 
 .darkBg {
     display: none;
     position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    z-index: 0;
     width: 100%;
     height: 100%;
     min-height: 100vh;
     background-color: #000;
     opacity: 0.42;
-    z-index: 0;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 #modal {
     display: none;
     position: absolute;
-    z-index: 1;
     transform: translateX(-50%);
-    top: 101px;
     left: 50%;
+    top: 101px;
+    z-index: 1;
     width: 560px;
+    padding: 53px 97px;
     border-radius: 12px;
     background-color: #fff;
-    padding: 53px 97px;
 }
 
 .title {
-    font-family: 'Montserrat';
+    margin: 0;
     font-style: normal;
     font-weight: 800;
     font-size: 28px;
     line-height: 34px;
     color: #0C1014;
-    margin: 0;
+    font-family: 'Montserrat';
 }
 
-#withImage {
+.inputsWithImage {
     margin-top: 3px;
     display: flex;
     justify-content: space-between;
 }
 
 /*блок загрузки логотипа*/
-.image-block {
+.imageBlock {
     margin-top: 32px;
     text-align: center;
 }
 
-.logo-title {
+.logoTitle {
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -61,28 +61,28 @@ body {
     color: #6A6E72;
 }
 
-.image-upload {
-    text-align: center;
+.imageUpload {
+    position: relative;
     margin-top: 13px;
     width: 165px;
-    position: relative;
+    text-align: center;
 }
 
-#upload-logo {
+.uploadLogo {
     position: absolute;
     top: 40px;
     left: 66px;
 }
 
-.image-upload input {
+.imageUpload input {
     display: none;
 }
 
-.image-upload label {
-    cursor: pointer;
+.imageUpload label {
     position: absolute;
     top: 76px;
     left: 40px;
+    cursor: pointer;
     color: #fff;
     font-style: normal;
     font-weight: 400;
@@ -92,31 +92,31 @@ body {
     text-decoration-line: underline;
 }
 
-#cancel-logo {
+#cancelLogo {
     position: absolute;
     right: 2px;
     top: 15px;
+    width: 36px;
+    height: 36px;
     background-color: #fff;
     border-radius: 50%;
     border: none;
     cursor: pointer;
-    width: 36px;
-    height: 36px;
 }
 
 /*--блок загрузки логотипа--*/
 
-.short-inputs {
+.shortInputs {
     width: 362px;
 }
 
-.custom-input {
+.customInput {
     position: relative;
     margin-top: 32px;
     width: 100%;
 }
 
-.custom-input input {
+.customInput input {
     height: 22px;
     width: -webkit-fill-available;
     padding: 16px;
@@ -127,11 +127,11 @@ body {
     border-radius: 2px;
 }
 
-.with-annotation-input input {
+.withAnnotationInput input {
     padding: 22px 16px 8px 16px;
 }
 
-.custom-input img {
+.customInput img {
     position: absolute;
     top: 22px;
     right: 22px;
@@ -153,49 +153,49 @@ body {
 }
 
 /*самописный селектор*/
-.custom-selector {
+.customSelector {
     position: relative;
 }
 
-.custom-selector .trigger {
-    text-align: left;
-    cursor: pointer;
-    padding: 22px 8px 16px 16px;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    background-color: #fff;
-    border: 1px solid #D6DADE;
-    border-radius: 2px;
+.customSelector .trigger {
     height: 56px;
     width: 100%;
     margin-top: 32px;
+    padding: 22px 8px 16px 16px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #D6DADE;
+    border-radius: 2px;
 }
 
-.custom-selector .arrow {
-    line-height: 10px;
+.customSelector .arrow {
     position: absolute;
     right: 15px;
     top: 56px;
+    line-height: 10px;
 }
 
-.custom-selector .annotation {
+.customSelector .annotation {
     top: 40px;
 }
 
-.custom-selector .context-menu {
+.customSelector .contextMenu {
     display: none;
     position: absolute;
     width: -webkit-fill-available;
     z-index: 2;
-    list-style-type: none;
     padding: 0;
     margin: 0;
+    list-style-type: none;
 }
 
-.custom-selector .context-menu li {
-    cursor: pointer;
+.customSelector .contextMenu li {
     padding: 16px;
+    cursor: pointer;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
@@ -206,12 +206,13 @@ body {
 }
 
 /*--самописный селектор--*/
-.buttons-block {
-    text-align: center;
+.buttonsBlock {
     margin-top: 50px;
+    text-align: center;
 }
 
-#submit-btn {
+#submitBtn {
+    width: 100%;
     background: #E5266E;
     border-radius: 4px;
     font-family: 'Lato';
@@ -220,23 +221,22 @@ body {
     font-size: 16px;
     line-height: 18px;
     text-align: center;
+    cursor: pointer;
     color: #FFFFFF;
-    width: 100%;
     padding: 15px 0;
     border: none;
-    cursor: pointer;
 }
 
-#cancel-form-btn {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
+#cancelFormBtn {
+    margin-top: 15px;
     color: #0848C0;
     background-color: #fff;
     border: none;
     cursor: pointer;
-    margin-top: 15px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
 }
 
 @media (max-width: 1023px) {
@@ -244,15 +244,15 @@ body {
         width: 80%;
     }
 
-    .short-inputs {
+    .shortInputs {
         width: 100%;
     }
 
-    #withImage {
+    .inputsWithImage {
         flex-direction: column;
     }
 
-    .image-upload {
+    .imageUpload {
         margin: 0 auto 13px;
     }
 }
